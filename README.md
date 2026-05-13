@@ -6,7 +6,7 @@ Three Claude Code skills for your digital twin video pipeline. Write scripts in 
 
 ```
 /plugin marketplace add DigitalTwinKit/dtk
-/plugin install dtk@DigitalTwinKit
+/plugin install dtk
 ```
 
 ## Skills
