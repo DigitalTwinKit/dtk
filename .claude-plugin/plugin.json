@@ -1,0 +1,14 @@
+{
+  "name": "dtk",
+  "version": "2026.2.0",
+  "description": "DigitalTwinKit free starter pack — 3 Claude skills for writing scripts, generating hooks, and drafting disclosure language in your voice.",
+  "author": {
+    "name": "Gavin Stevens",
+    "email": "info@digitaltwinkit.com",
+    "url": "https://digitaltwinkit.com"
+  },
+  "homepage": "https://digitaltwinkit.com",
+  "repository": "https://github.com/digitaltwinkit/skills",
+  "license": "MIT",
+  "keywords": ["video", "script", "claude", "twin", "avatar", "heygen", "creator"]
+}
