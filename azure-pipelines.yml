@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/.claude-plugin'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/.claude-plugin'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/skills'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/skills'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
+    replaceExistingArchive: true
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
+    artifact: 'dtkfree'
+    publishLocation: 'pipeline'
