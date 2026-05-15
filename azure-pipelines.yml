@@ -40,12 +40,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free.zip'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'dtk-free'
-    publishLocation: 'pipeline'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free-Q2-2026.zip'
-    artifact: 'dtkfree-Q2-2026'
     publishLocation: 'pipeline'
