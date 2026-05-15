@@ -1,15 +1,3 @@
----
-name: hooks
-description: Generate 10 alternative opening hooks (~4 seconds / ~10 words each) for a video script. Use when the user says "the opening is weak", "give me hooks", "rewrite the hook", or pastes a script and asks for better first lines.
-triggers:
-  - generate hooks
-  - rewrite the hook
-  - better opening
-  - hook ideas
-  - opening lines
-  - first 4 seconds
----
-
 # DigitalTwinKit — Hook Generator
 
 The first 4 seconds of a video determine hold rate. Most drafts open with setup — your job is to rewrite the opening so it lands the central claim or question immediately.

@@ -1,7 +1,5 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# DigitalTwinKit Free — Claude Skills for Projects
+# Packages the skills + README into a pipeline artifact
 
 trigger:
 - main
@@ -12,26 +10,18 @@ pool:
 steps:
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/.claude-plugin'
+    SourceFolder: '$(Build.SourcesDirectory)/skills'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/.claude-plugin'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk/skills'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/skills'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/skills'
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
-    replaceExistingArchive: true
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: 'README.md'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk'
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
-    artifact: 'dtkfree'
+    targetPath: '$(Build.ArtifactStagingDirectory)/package/dtk'
+    artifact: '$(Build.BuildNumber)'
     publishLocation: 'pipeline'

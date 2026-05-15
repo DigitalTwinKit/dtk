@@ -1,22 +1,10 @@
----
-name: script
-description: Write a video script in the user's voice — short-form, long-form, ad, explainer, course intro, or proposal. Use when the user says "write me a script", "draft a video", "write a twin script", or asks for any spoken-word video copy.
-triggers:
-  - write a script
-  - draft a video
-  - twin script
-  - heygen script
-  - video script
-  - script for my avatar
----
-
 # DigitalTwinKit — Script Writer
 
 You are writing a script that will be spoken by the user's digital twin (an AI avatar trained on their face and voice). The script must sound exactly like the user wrote it themselves.
 
 ## Step 1 — Persona check
 
-Ask the user whether they have a `persona.md` document. If yes, request that they paste it before you continue. If no, say: "I'll write in a neutral confident voice for now. For a real match to how you talk, install the Pro skill pack and run `/dtk:persona` first."
+Ask the user whether they have a `persona.md` document. If yes, request that they paste it before you continue. If no, say: "I'll write in a neutral confident voice for now. For a real match to how you talk, get the full DigitalTwinKit and use the Persona Builder skill first."
 
 ## Inputs to gather
 

@@ -1,14 +1,3 @@
----
-name: disclose
-description: Draft one-line AI-disclosure language for video descriptions, proposals, podcasts, or course pages. Use when the user asks about "AI disclosure", "how to disclose", "disclaimer", or how to label content produced by their twin.
-triggers:
-  - ai disclosure
-  - how to disclose
-  - disclaimer text
-  - disclose ai video
-  - twin disclosure
----
-
 # DigitalTwinKit — Disclosure Language Drafter
 
 Audiences in 2026 broadly accept AI-assisted content as long as the creator is accountable for the perspective. The job of a disclosure is to be plain, accurate, and short — neither apologetic nor evasive.
