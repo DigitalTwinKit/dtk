@@ -21,6 +21,7 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
 
 - task: ArchiveFiles@2
+  displayName: 'Zip — dtk-free.zip'
   inputs:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
     includeRootFolder: true
@@ -28,8 +29,23 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/dtk-free.zip'
     replaceExistingArchive: true
 
+- task: ArchiveFiles@2
+  displayName: 'Zip — archive build'
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dtk-free-$(Build.BuildNumber).zip'
+    replaceExistingArchive: true
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free.zip'
-    artifact: '$(Build.BuildNumber)'
+    artifact: 'dtk-free'
+    publishLocation: 'pipeline'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free-$(Build.BuildNumber).zip'
+    artifact: 'dtk-free-$(Build.BuildNumber)'
     publishLocation: 'pipeline'
