@@ -1,5 +1,5 @@
 # DigitalTwinKit Free — Claude Skills for Projects
-# Packages the skills + README into a pipeline artifact
+# Packages the skills + README into a zip artifact
 
 trigger:
 - main
@@ -12,16 +12,24 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/skills'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk/skills'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk-free/skills'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: 'README.md'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dtk-free.zip'
+    replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/package/dtk'
+    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free.zip'
     artifact: '$(Build.BuildNumber)'
     publishLocation: 'pipeline'
