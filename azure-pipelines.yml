@@ -33,5 +33,5 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
-    artifact: 'dtkfree'
+    artifact: 'dtk-free'
     publishLocation: 'pipeline'
