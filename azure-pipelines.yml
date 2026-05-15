@@ -30,12 +30,12 @@ steps:
     replaceExistingArchive: true
 
 - task: ArchiveFiles@2
-  displayName: 'Zip — archive build'
+  displayName: 'Zip — quarterly archive'
   inputs:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/package/dtk-free'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/dtk-free-$(Build.BuildNumber).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dtk-free-Q2-2026.zip'
     replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
@@ -46,6 +46,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free-$(Build.BuildNumber).zip'
-    artifact: 'dtk-free-$(Build.BuildNumber)'
+    targetPath: '$(Build.ArtifactStagingDirectory)/dtk-free-Q2-2026.zip'
+    artifact: 'dtkfree-Q2-2026'
     publishLocation: 'pipeline'
